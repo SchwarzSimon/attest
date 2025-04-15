@@ -1,0 +1,23 @@
+name: UploadArt
+
+on:
+  push:
+    branches:
+      - main
+
+permissions: write-all
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - id: step
+        name: step
+        run: |
+          echo "Hello, World!" > hello.txt
+          echo "::set-output name=TEST::stdout"
+
+      - name: Print results
+        run: |
+          echo "TEST=${{ steps.step.outputs.TEST }}"
